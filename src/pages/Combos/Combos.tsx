@@ -93,9 +93,9 @@ export default function Combos() {
                 <Button onClick={() => {}}>Adicionar</Button>
               </ProductCardContent>
               <ProductCardPrice>
-                {priceFormat(product.values)}
+                {priceFormat(product.values.combos)}
               </ProductCardPrice>
-              <img src={product.image[0]} alt={product.title} />
+              <img src={product.image[1]} alt={product.title} />
             </ProductCard>
           ))
         )}

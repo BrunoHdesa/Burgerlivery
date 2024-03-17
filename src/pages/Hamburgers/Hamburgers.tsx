@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, CategoryList, Layout, ProductCard } from "../../components";
 import { ProductCategories, ProductWrapper } from "./Hamburgers.style";
-import {
-  ProductCardContent,
-  ProductCardPrice,
-} from "../../components/ProductCard/ProductCard.style";
+import { ProductCardContent, ProductCardPrice } from "../../components/ProductCard/ProductCard.style";
 
 export default function Hamburgers() {
   const [isLoading, setIsLoading] = useState(false);
@@ -106,3 +103,4 @@ export default function Hamburgers() {
     </Layout>
   );
 }
+

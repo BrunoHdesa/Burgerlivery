@@ -93,7 +93,7 @@ export default function Beverages() {
                 <Button onClick={() => {}}>Adicionar</Button>
               </ProductCardContent>
               <ProductCardPrice>
-                {priceFormat(product.values)}
+                {priceFormat(product.value)}
               </ProductCardPrice>
               <img src={product.image} alt={product.title} />
             </ProductCard>

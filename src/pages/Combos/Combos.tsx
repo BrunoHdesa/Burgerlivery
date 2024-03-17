@@ -88,8 +88,8 @@ export default function Combos() {
           products.map((product, index) => (
             <ProductCard key={index}>
               <ProductCardContent>
-                <h2>{product.title}</h2>
-                <p>{product.description}</p>
+                <h2>COMBO {product.title}</h2>
+                <p>{product.description} batata tradicional e bebida.</p>
                 <Button onClick={() => {}}>Adicionar</Button>
               </ProductCardContent>
               <ProductCardPrice>

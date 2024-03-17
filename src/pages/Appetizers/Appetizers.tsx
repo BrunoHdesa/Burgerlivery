@@ -2,11 +2,17 @@ import { useEffect, useState } from "react";
 import { Button, CategoryList, Layout, ProductCard } from "../../components";
 import { ProductCategories, ProductWrapper } from "./../Hamburgers/Hamburgers.style";
 import { ProductCardContent, ProductCardPrice } from "../../components/ProductCard/ProductCard.style";
+import { TamanhoAppettizers } from "./Appetizer.style";
 
 export default function Appetizers() {
   const [isLoading, setIsLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const [tamanhos, setTamanhos] = useState([]);
+
+  const escolherTamanho = (index: number, price: string) => {
+    setTamanhos({ tamanhos, [index]: price });
+  };
 
   const priceFormat = (price: number) => {
     console.log("cai aqui?");
@@ -90,10 +96,24 @@ export default function Appetizers() {
               <ProductCardContent>
                 <h2>{product.title}</h2>
                 <p>{product.description}</p>
+                <TamanhoAppettizers>
+                  <div>
+                    <input type="radio" id={`pequeno_${index}`} value="pequeno"
+                      checked={tamanhos[index] === "small"}
+                      onChange={() => escolherTamanho(index, "small")}/>
+                    <label htmlFor={`pequeno_${index}`}>Pequeno</label>
+                  </div>
+                  <div>
+                    <input type="radio" id={`grande_${index}`} value="grande"
+                      checked={tamanhos[index] === "large"}
+                      onChange={() => escolherTamanho(index, "large")}/>
+                    <label htmlFor={`grande_${index}`}>Grande</label>
+                  </div>
+                </TamanhoAppettizers>
                 <Button onClick={() => {}}>Adicionar</Button>
               </ProductCardContent>
               <ProductCardPrice>
-                {priceFormat(product.values.small)}
+                {priceFormat(product.values[tamanhos[index]])}
               </ProductCardPrice>
               <img src={product.image} alt={product.title} />
             </ProductCard>
